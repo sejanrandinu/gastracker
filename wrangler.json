@@ -5,8 +5,8 @@
 	"d1_databases": [
 		{
 			"binding": "DB",
-			"database_name": "gas-db",
-			"database_id": "f9a6e695-a7be-4f8c-96e2-a55861e13f1f"
+			"database_name": "gas-db-v2",
+			"database_id": "a6bd3367-7069-4fc2-a830-c138fd44b634"
 		}
 	]
 }
