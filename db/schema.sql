@@ -12,7 +12,7 @@ CREATE TABLE IF NOT EXISTS stations (
 CREATE TABLE IF NOT EXISTS updates (
   id TEXT PRIMARY KEY,
   station_id TEXT NOT NULL,
-  item_type TEXT CHECK(item_type IN ('litro', 'laugfs', 'petrol', 'diesel')) NOT NULL,
+  item_type TEXT CHECK(item_type IN ('litro', 'laugfs', 'petrol', 'diesel', 'kerosene')) NOT NULL,
   queue_status TEXT CHECK(queue_status IN ('very_long', 'normal', 'short', 'no_queue')) NOT NULL,
   units_available INTEGER DEFAULT 0, -- Specific for Gas
   photo_url TEXT,

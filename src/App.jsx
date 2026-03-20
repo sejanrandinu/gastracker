@@ -314,7 +314,7 @@ function App() {
                             </button>
                           ))
                         ) : (
-                          ['petrol', 'diesel'].map(i => (
+                          ['petrol', 'diesel', 'kerosene'].map(i => (
                             <button key={i} type="button" className={`lang-btn ${selectedItemType === i ? 'active' : ''}`} onClick={() => setSelectedItemType(i)}>
                               {t[i]}
                             </button>
