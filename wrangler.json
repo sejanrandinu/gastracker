@@ -1,6 +1,7 @@
 {
 	"name": "gastracker",
-	"pages_build_output_dir": "./dist",
+	"pages_build_output_dir": "dist",
+	"compatibility_date": "2024-03-20",
 	"d1_databases": [
 		{
 			"binding": "DB",
