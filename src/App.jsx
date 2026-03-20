@@ -70,7 +70,15 @@ function App() {
     try {
       const res = await fetch('/api/stations');
       const data = await res.json();
-      if (Array.isArray(data)) setStations(data);
+      if (Array.isArray(data) && data.length > 0) {
+        setStations(data);
+      } else {
+        // Fallback mock data if DB is empty
+        setStations([
+          { id: 's1', name: 'Colombo Gas Center', type: 'dealer', lat: 6.9271, lng: 79.8612, address: '123 Main St, Colombo', items: { litro: { status: 'normal', units: 45 }, laugfs: { status: 'very_long', units: 10 } } },
+          { id: 's2', name: 'Lanka Fuel Shed', type: 'shed', lat: 6.9126, lng: 79.8646, address: 'Cinnamon Gardens, Col 7', items: { petrol: { status: 'no_queue' }, diesel: { status: 'short' } } },
+        ]);
+      }
     } catch (err) {
       console.error('Fetch error:', err);
     } finally {
