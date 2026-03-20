@@ -1,0 +1,11 @@
+{
+	"name": "gastracker",
+	"pages_build_output_dir": "./dist",
+	"d1_databases": [
+		{
+			"binding": "DB",
+			"database_name": "gas-db",
+			"database_id": "f9a6e695-a7be-4f8c-96e2-a55861e13f1f"
+		}
+	]
+}

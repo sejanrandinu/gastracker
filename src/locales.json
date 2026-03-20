@@ -1,0 +1,80 @@
+{
+  "en": {
+    "title": "Gas & Fuel Tracker",
+    "tagline": "Real-time crowdsourced availability updates",
+    "search": "Search for station...",
+    "categories": "Categories",
+    "litro": "Litro Gas",
+    "laugfs": "Laugfs Gas",
+    "petrol": "Petrol",
+    "diesel": "Diesel",
+    "status": {
+      "very_long": "Very Long Queue",
+      "normal": "Normal Queue",
+      "short": "Short Queue",
+      "no_queue": "No Queue",
+      "no_data": "No info yet"
+    },
+    "add_update": "Add Update",
+    "select_station": "Select Station",
+    "queue_length": "Queue Length",
+    "photo": "Add Photo",
+    "submit": "Submit Update",
+    "last_updated": "Last updated",
+    "units": "Units",
+    "view_gas": "Gas",
+    "view_fuel": "Fuel"
+  },
+  "si": {
+    "title": "ගෑස් සහ ඉන්ධන තොරතුරු",
+    "tagline": "නියම වේලාවට ජනතාවගෙන් ලැබෙන තොරතුරු",
+    "search": "ස්ථානය සොයන්න...",
+    "categories": "වර්ගීකරණය",
+    "litro": "ලිට්රෝ ගෑස්",
+    "laugfs": "ලාෆ්ස් ගෑස්",
+    "petrol": "පැට්රල්",
+    "diesel": "ඩීසල්",
+    "status": {
+      "very_long": "දිගු පෝලිමක්",
+      "normal": "සාමාන්‍ය පෝලිමක්",
+      "short": "කෙටි පෝලිමක්",
+      "no_queue": "පෝලිමක් නැත",
+      "no_data": "තවම තොරතුරු නැත"
+    },
+    "add_update": "තොරතුරු එක් කරන්න",
+    "select_station": "ස්ථානය තෝරන්න",
+    "queue_length": "පෝලිමේ තත්වය",
+    "photo": "ඡායාරූපයක් එක් කරන්න",
+    "submit": "ඉදිරිපත් කරන්න",
+    "last_updated": "අවසන් වරට යාවත්කාලීන කලේ",
+    "units": "ප්‍රමාණය (සිලින්ඩර)",
+    "view_gas": "ගෑස්",
+    "view_fuel": "ඉන්ධන"
+  },
+  "ta": {
+    "title": "எரிவாயு மற்றும் எரிபொருள் கண்காணிப்பு",
+    "tagline": "உடனுக்குடன் மக்கள் வழங்கும் தகவல்கள்",
+    "search": "நிலையத்தைத் தேடுக...",
+    "categories": "வகைகள்",
+    "litro": "லிட்ரோ எரிவாயு",
+    "laugfs": "லாப்ஸ் எரிவாயு",
+    "petrol": "பெட்ரோல்",
+    "diesel": "டீசல்",
+    "status": {
+      "very_long": "மிக நீண்ட வரிசை",
+      "normal": "சாதாரண வரிசை",
+      "short": "குறுகிய வரிசை",
+      "no_queue": "வரிசை இல்லை",
+      "no_data": "இன்னும் தகவல் இல்லை"
+    },
+    "add_update": "தகவலைச் சேர்க்கவும்",
+    "select_station": "நிலையத்தைத் தேர்ந்தெடுக்கவும்",
+    "queue_length": "வரிசை நிலை",
+    "photo": "புகைப்படத்தைப் பதிவேற்றவும்",
+    "submit": "சமர்ப்பிக்கவும்",
+    "last_updated": "கடைசியாக புதுப்பிக்கப்பட்டது",
+    "units": "அலகுகள் (சிலிண்டர்கள்)",
+    "view_gas": "எரிவாயு",
+    "view_fuel": "எரிபொருள்"
+  }
+}
