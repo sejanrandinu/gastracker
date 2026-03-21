@@ -230,34 +230,47 @@ function App() {
                     <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
                       <div>
                         <h2>{activeStation.name}</h2>
-                        <p><MapPin size={14} /> {activeStation.address}</p>
+                        <p style={{ display: 'flex', alignItems: 'center', gap: 4, opacity: 0.7 }}>
+                          <MapPin size={14} /> {activeStation.address}
+                        </p>
                       </div>
                       <button className="lang-btn" onClick={() => setActiveStation(null)}>✕</button>
                     </div>
                   </div>
 
-                  <div className="status-cards">
-                    {Object.entries(activeStation.items).map(([key, data]) => (
-                      <div key={key} className="item-card">
-                        <span className="type-label">{t[key] || key}</span>
-                        <div className="status-text" style={{ color: `var(--status-${data.status === 'no_queue' ? 'no' : data.status === 'short' ? 'short' : data.status === 'normal' ? 'normal' : 'long'})` }}>
-                          {t.status[data.status]}
-                        </div>
-                        <div className="status-indicator">
-                          <div className={`indicator-fill status-${data.status}`} />
-                        </div>
-                        {activeStation.type === 'dealer' && (
-                          <div style={{ fontWeight: 700, fontSize: '1.1rem', margin: '4px 0' }}>
-                            {data.units} <span style={{ fontSize: '0.7rem', opacity: 0.7 }}>{t.units}</span>
+                  <div className="status-grid">
+                    {Object.entries(activeStation.items || {}).map(([key, data]) => {
+                      if (!data) return (
+                        <div key={key} className="item-card empty">
+                          <div className="item-info">
+                            <span className="item-name">{t[key] || key}</span>
+                            <span className="item-status dimmed">{t.no_info || 'No Updates'}</span>
                           </div>
-                        )}
-                        <div className="update-time">
-                          <Clock size={10} style={{ marginRight: 4 }} />
-                          {data.updated ? new Date(data.updated).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) : '--:--'}
                         </div>
-                      </div>
-                    ))}
-                    {Object.keys(activeStation.items).length === 0 && (
+                      );
+                      return (
+                        <div key={key} className="item-card">
+                          <div className="item-info">
+                            <span className="item-name">{t[key] || key}</span>
+                            <span className="item-status">{t.status[data.status] || data.status}</span>
+                          </div>
+                          <div className="availability-bar">
+                            <div className={`indicator-fill status-${data.status}`} />
+                          </div>
+                          <div className="item-footer">
+                            {activeStation.type === 'dealer' && data.units !== undefined && (
+                              <span className="units-info">
+                                <strong>{data.units}</strong> {t.units}
+                              </span>
+                            )}
+                            <span className="update-time">
+                              <Clock size={12} /> {data.updated ? new Date(data.updated).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) : '--:--'}
+                            </span>
+                          </div>
+                        </div>
+                      );
+                    })}
+                    {Object.keys(activeStation.items || {}).length === 0 && (
                       <div style={{ gridColumn: '1/-1', textAlign: 'center', padding: '20px', opacity: 0.6 }}>
                         <Info size={32} style={{ marginBottom: 8 }} />
                         <p>{t.status.no_data}</p>
@@ -265,20 +278,20 @@ function App() {
                     )}
                   </div>
 
-                  <button className="submit-btn" style={{ width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 10 }} onClick={openUpdateForm}>
+                  <button className="submit-btn" style={{ width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 10, marginTop: 16 }} onClick={openUpdateForm}>
                     <Navigation size={18} /> {t.add_update}
                   </button>
                 </>
               ) : (
                 <form className="form-section" onSubmit={handleUpdateSubmit}>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 20 }}>
                     <button type="button" className="lang-btn" onClick={() => setIsUpdating(false)}>
                       <ArrowLeft size={18} />
                     </button>
                     <h2 style={{ fontSize: '1.2rem' }}>{t.add_update}</h2>
                   </div>
 
-                  <div>
+                  <div style={{ marginBottom: 16 }}>
                     <p style={{ fontSize: '0.85rem', color: 'var(--text-dim)', marginBottom: 8 }}>{t.categories}</p>
                     <div className="selection-group">
                       {(activeStation.type === 'dealer' ? ['litro', 'laugfs'] : ['petrol_92', 'petrol_95', 'auto_diesel', 'super_diesel', 'kerosene']).map(i => (
@@ -294,7 +307,7 @@ function App() {
                     </div>
                   </div>
 
-                  <div>
+                  <div style={{ marginBottom: 16 }}>
                     <p style={{ fontSize: '0.85rem', color: 'var(--text-dim)', marginBottom: 8 }}>{t.queue_length}</p>
                     <div className="selection-group">
                       {['no_queue', 'short', 'normal', 'very_long'].map(s => (
@@ -311,7 +324,7 @@ function App() {
                   </div>
 
                   {activeStation.type === 'dealer' && (
-                    <div>
+                    <div style={{ marginBottom: 16 }}>
                       <p style={{ fontSize: '0.85rem', color: 'var(--text-dim)', marginBottom: 8 }}>{t.units}</p>
                       <div className="search-bar-container">
                         <input 
